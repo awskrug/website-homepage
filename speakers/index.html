@@ -16,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;600&family=Allura&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&family=Open+Sans:wght@300;400;600&family=Allura&family=Cinzel:wght@400;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Animate.css -->
@@ -44,10 +44,10 @@
 
     <style>
         body {
-            background-color: #f5f7fa;
-            /* Light grey/blue background */
+            background: #ffffff;
             font-family: 'Open Sans', sans-serif;
             color: #333;
+            min-height: 100vh;
         }
 
         .cert-wrapper {
@@ -57,111 +57,200 @@
             align-items: center;
         }
 
-        /* Certificate Paper Style */
+        /* Certificate Paper - Double Border Frame */
         .certificate-paper {
             width: 100%;
-            max-width: 960px;
-            /* Standard efficient width */
-            background: #ffffff;
+            max-width: 1000px;
+            background: linear-gradient(135deg, #89a5c4 0%, #a8c0d8 100%);
             position: relative;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
-            padding: 15px;
-            /* Outer padding for the border effect */
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 25px;
             margin-bottom: 40px;
+        }
+
+        .cert-outer-border {
+            border: 3px solid #fff;
+            padding: 15px;
+            background: linear-gradient(135deg, #89a5c4 0%, #a8c0d8 100%);
         }
 
         .cert-inner-border {
-            border: 5px solid #232f3e;
-            /* AWS Squid Ink */
-            padding: 40px 60px;
-            height: 100%;
+            border: 2px solid #6b8aa8;
+            padding: 50px 70px;
+            background: #ffffff;
             position: relative;
-            background: #fff;
-            background-image: radial-gradient(#f0f0f0 1px, transparent 1px);
-            background-size: 20px 20px;
-            /* Subtle pattern */
         }
 
-        /* Header Section */
+        /* Decorative Corners */
+        .cert-inner-border::before,
+        .cert-inner-border::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+        }
+
+        .cert-inner-border::before {
+            top: 15px;
+            left: 15px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .cert-inner-border::after {
+            top: 15px;
+            right: 15px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .corner-bottom-left,
+        .corner-bottom-right {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+        }
+
+        .corner-bottom-left {
+            bottom: 15px;
+            left: 15px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .corner-bottom-right {
+            bottom: 15px;
+            right: 15px;
+            border-left: none;
+            border-top: none;
+        }
+
+        /* Header - Logo and Title */
         .cert-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #FF9900;
-            /* AWS Orange */
-            padding-bottom: 25px;
+            text-align: center;
             margin-bottom: 40px;
         }
 
-        .cert-brand {
-            display: flex;
-            align-items: center;
-        }
-
-        .cert-brand img {
-            height: 50px;
-            width: 50px;
+        .cert-logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border: 3px solid #d4af37;
             border-radius: 50%;
-            margin-right: 15px;
+            padding: 10px;
+            background: #fff;
         }
 
-        .cert-brand-text {
-            font-family: 'Merriweather', serif;
-            font-weight: 900;
-            font-size: 20px;
-            color: #232f3e;
+        .cert-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
-        .cert-type {
-            font-size: 14px;
+        .cert-main-title {
+            font-family: 'Cinzel', serif;
+            font-size: 36px;
+            font-weight: 600;
+            color: #4a5568;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
             text-transform: uppercase;
+        }
+
+        .cert-subtitle {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #718096;
             letter-spacing: 2px;
-            color: #888;
-            font-weight: 700;
-            text-align: right;
+        }
+
+        /* Decorative Divider */
+        .divider {
+            text-align: center;
+            margin: 30px 0;
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+        }
+
+        .divider::before {
+            left: 0;
+        }
+
+        .divider::after {
+            right: 0;
+        }
+
+        .divider-icon {
+            display: inline-block;
+            color: #d4af37;
+            font-size: 24px;
         }
 
         /* Body Section */
         .cert-body {
-            text-align: left;
-            padding: 10px 0;
-            min-height: 250px;
+            text-align: center;
+            padding: 20px 0;
         }
 
         .cert-intro {
+            font-family: 'Merriweather', serif;
             font-size: 16px;
-            color: #555;
-            margin-bottom: 15px;
-            font-weight: 400;
+            font-style: italic;
+            color: #718096;
+            margin-bottom: 20px;
         }
 
         .recipient-name {
-            font-family: 'Merriweather', serif;
-            font-size: 42px;
-            /* Large formal name */
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 25px;
+            font-family: 'Allura', cursive;
+            font-size: 64px;
+            font-weight: 400;
+            color: #2d3748;
+            margin: 20px 0 30px;
             line-height: 1.2;
         }
 
         .cert-description {
-            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
             line-height: 1.8;
-            color: #444;
-            margin-bottom: 30px;
-            max-width: 90%;
+            color: #4a5568;
+            margin: 0 auto 30px;
+            max-width: 85%;
         }
 
         .cert-event-info {
-            font-size: 16px;
-            color: #333;
-            background-color: #f9f9f9;
-            padding: 15px 20px;
-            border-left: 4px solid #232f3e;
-            display: inline-block;
-            margin-bottom: 20px;
-            width: 100%;
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 80%;
+            text-align: left;
+        }
+
+        .cert-event-info>div {
+            margin-bottom: 10px;
+        }
+
+        .cert-event-info>div:last-child {
+            margin-bottom: 0;
+        }
+
+        .cert-event-info strong {
+            color: #2d3748;
+            font-weight: 600;
+            margin-right: 8px;
         }
 
         .cert-event-info a {
@@ -175,14 +264,30 @@
             border-bottom-color: #0073b1;
         }
 
+        /* Achievement Badge */
+        .achievement-badge {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .achievement-text {
+            font-family: 'Cinzel', serif;
+            font-size: 20px;
+            color: #4a5568;
+            padding: 15px 40px;
+            border-top: 1px solid #d4af37;
+            border-bottom: 1px solid #d4af37;
+            display: inline-block;
+        }
+
         /* Footer Section */
         .cert-footer {
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            margin-top: 60px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
         }
 
         .cert-meta-col {
@@ -190,46 +295,78 @@
         }
 
         .cert-label {
-            font-size: 11px;
+            font-size: 10px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #999;
-            margin-bottom: 4px;
+            letter-spacing: 1.5px;
+            color: #a0aec0;
+            margin-bottom: 5px;
+            font-weight: 600;
         }
 
         .cert-value {
             font-family: 'Merriweather', serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #333;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2d3748;
             margin-bottom: 15px;
         }
 
         .cert-id {
             font-family: monospace;
-            color: #666;
-            font-size: 14px;
+            color: #718096;
+            font-size: 13px;
         }
 
         .cert-signature {
-            text-align: right;
+            text-align: center;
             min-width: 200px;
         }
 
         .signature-img-placeholder {
-            height: 60px;
             font-family: 'Allura', cursive;
-            font-size: 50px;
-            color: #232f3e;
-            margin-bottom: 0px;
-            /* transform removed for cleaner look */
+            font-size: 48px;
+            color: #2d3748;
+            margin-bottom: 5px;
         }
 
         .signature-line {
-            height: 1px;
-            background-color: #333;
+            height: 2px;
+            background: #2d3748;
             width: 100%;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+        }
+
+        /* Seal/Stamp */
+        .cert-seal {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 80px;
+            border: 3px solid #d4af37;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cert-seal-inner {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            color: #d4af37;
+            text-align: center;
+            line-height: 1.2;
+            font-weight: 600;
         }
 
         /* Actions */
@@ -245,7 +382,7 @@
             font-size: 16px;
             font-weight: 600;
             border-radius: 6px;
-            transition: background 0.2s ease;
+            transition: all 0.3s ease;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -257,6 +394,8 @@
             background-color: #005582;
             text-decoration: none;
             color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(0, 115, 177, 0.35);
         }
 
         .linkedin-btn i {
@@ -269,41 +408,46 @@
         #error-message {
             text-align: center;
             padding: 50px;
-            color: #666;
+            color: #4a5568;
         }
 
         #error-message {
-            color: #d9534f;
+            color: #e53e3e;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
             .cert-inner-border {
-                padding: 30px 20px;
+                padding: 30px 25px;
             }
 
-            .cert-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .cert-type {
-                text-align: left;
-                margin-top: 10px;
+            .cert-main-title {
+                font-size: 28px;
+                letter-spacing: 2px;
             }
 
             .recipient-name {
-                font-size: 32px;
+                font-size: 48px;
             }
 
             .cert-footer {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                gap: 30px;
             }
 
             .cert-signature {
-                margin-top: 30px;
-                text-align: left;
+                text-align: center;
+            }
+
+            .cert-meta-col {
+                text-align: center;
+            }
+
+            .cert-seal {
+                position: static;
+                transform: none;
+                margin: 20px auto 0;
             }
         }
     </style>
@@ -314,11 +458,12 @@
     <div class="ubea-loader"></div>
 
     <!-- Simple Nav -->
-    <nav class="ubea-nav" role="navigation" style="background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+    <nav class="ubea-nav" role="navigation"
+        style="background: rgba(255,255,255,0.95); box-shadow: 0 2px 8px rgba(0,0,0,0.1); backdrop-filter: blur(10px);">
         <div class="ubea-container">
             <div class="row">
                 <div class="col-xs-12">
-                    <div id="ubea-logo"><a href="/" style="color: #232f3e;">AWSKRUG</a></div>
+                    <div id="ubea-logo"><a href="/" style="color: #2d3748; font-weight: 600;">AWSKRUG</a></div>
                 </div>
             </div>
         </div>
@@ -333,56 +478,73 @@
 
         <!-- Certificate Paper -->
         <div id="certificate-view" class="certificate-paper" style="display: none;">
-            <div class="cert-inner-border">
+            <div class="cert-outer-border">
+                <div class="cert-inner-border">
+                    <!-- Decorative Corners -->
+                    <div class="corner-bottom-left"></div>
+                    <div class="corner-bottom-right"></div>
 
-                <!-- 1. Header: Brand + Title -->
-                <div class="cert-header">
-                    <div class="cert-brand">
-                        <!-- Use Raw URL for the image -->
-                        <img src="https://raw.githubusercontent.com/awskrug/awskrug-digital-assets/master/awskrug-title/awskrug-title.png"
-                            alt="AWSKRUG" style="width: 200px; height: auto; border-radius: 0; margin-right: 0;">
-                    </div>
-                    <div class="cert-type" id="cert-title-display">CERTIFICATE OF APPRECIATION</div>
-                </div>
-
-                <!-- 2. Body: Recipient + Desc -->
-                <div class="cert-body">
-                    <p class="cert-intro">This certificate is awarded to</p>
-                    <h1 class="recipient-name" id="recipient-name">Loading...</h1>
-
-                    <div class="cert-description" id="cert-desc">
-                        Loading description...
+                    <!-- Header: Logo + Title -->
+                    <div class="cert-header">
+                        <div class="cert-logo">
+                            <img src="https://github.com/awskrug/awskrug-digital-assets/blob/master/gurumi/gurumi_TP.png?raw=true"
+                                alt="AWSKRUG Gurumi">
+                        </div>
+                        <h1 class="cert-main-title">Certificate of Experience</h1>
+                        <p class="cert-subtitle">AWS Korea User Group</p>
                     </div>
 
-                    <div class="cert-event-info">
-                        <div><strong>Event:</strong> <span id="cert-event">-</span></div>
-                        <div id="cert-event-title" style="margin-top: 8px; display: none;">
-                            <strong>Title:</strong> <span id="cert-event-title-text">-</span>
+                    <!-- Decorative Divider -->
+                    <div class="divider">
+                        <span class="divider-icon">❖</span>
+                    </div>
+
+                    <!-- Body: Recipient + Description -->
+                    <div class="cert-body">
+                        <p class="cert-intro">This Certificate is Proudly Presented to</p>
+                        <h2 class="recipient-name" id="recipient-name">Loading...</h2>
+
+                        <div class="cert-description" id="cert-desc">
+                            Loading description...
+                        </div>
+
+                        <div class="cert-event-info">
+                            <div><strong>Event:</strong> <span id="cert-event">-</span></div>
+                            <div id="cert-event-title" style="display: none;">
+                                <strong>Title:</strong> <span id="cert-event-title-text">-</span>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- 3. Footer: Date, ID, Signature -->
-                <div class="cert-footer">
-                    <div class="cert-meta-col">
-                        <div class="cert-label">Issued Date</div>
-                        <div class="cert-value" id="cert-date">-</div>
+                    <!-- Footer: Date, ID, Signature -->
+                    <div class="cert-footer">
+                        <div class="cert-meta-col">
+                            <div class="cert-label">Date</div>
+                            <div class="cert-value" id="cert-date">-</div>
 
-                        <div class="cert-label" style="margin-top: 15px;">Credential ID</div>
-                        <div class="cert-value cert-id" id="cert-id">-</div>
+                            <div class="cert-label" style="margin-top: 15px;">Credential ID</div>
+                            <div class="cert-value cert-id" id="cert-id">-</div>
+                        </div>
+
+                        <div class="cert-signature">
+                            <div class="signature-img-placeholder">AWSKRUG</div>
+                            <div class="signature-line"></div>
+                            <div class="cert-label">Organizers</div>
+                        </div>
                     </div>
 
-                    <div class="cert-signature">
-                        <div class="signature-img-placeholder">AWSKRUG Organizers</div>
-                        <div class="signature-line"></div>
-                        <div class="cert-label">Signature</div>
+                    <!-- Official Seal -->
+                    <div class="cert-seal">
+                        <div class="cert-seal-inner">
+                            AWSKRUG<br>OFFICIAL
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
 
-        <!-- 4. Action Area -->
+        <!-- Action Area -->
         <div id="action-area" class="action-area" style="display:none;">
             <a href="#" target="_blank" id="linkedin-btn" class="linkedin-btn">
                 <i class="ti-linkedin"></i> Add to LinkedIn Profile
@@ -391,11 +553,12 @@
 
     </div>
 
-    <footer id="ubea-footer" role="contentinfo" style="padding: 2em 0;">
+    <footer id="ubea-footer" role="contentinfo" style="padding: 2em 0; background: transparent;">
         <div class="ubea-container">
             <div class="row copyright">
                 <div class="col-md-12 text-center">
-                    <small class="block">&copy; 2025 AWS Korea Usergroup. All Rights Reserved.</small>
+                    <small class="block" style="color: #718096;">&copy; 2025 AWS Korea Usergroup. All
+                        Rights Reserved.</small>
                 </div>
             </div>
         </div>
@@ -479,8 +642,8 @@
 
                     // Show
                     $('#loading').hide();
-                    $('#certificate-view').fadeIn(600); // slightly slower fade for elegance
-                    $('#action-area').fadeIn(800);
+                    $('#certificate-view').fadeIn(800);
+                    $('#action-area').fadeIn(1000);
                 })
                 .fail(function () {
                     $('#loading').hide();
