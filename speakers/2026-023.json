@@ -1,10 +1,10 @@
 {
     "id": "2026-023",
-    "name": "이희찬",
+    "name": "김다연",
     "role": "Speaker",
     "event": "AI Engineering",
     "date": "2026-03-04",
-    "title": "Amazon Bedrock Code Interpreter로 만드는 정확하고 효율적인 AI Agent",
-    "url": "https://github.com/awskrug/ai-engineering-group/tree/main/src/20260304-Bedrock-AgentCore-Hands-On/bedrock-agentcore-code-interpreter",
+    "title": "AgentCore 에피소드 메모리로 학습하는 에이전트 구현해보기",
+    "url": "https://github.com/awskrug/ai-engineering-group/tree/main/src/20260304-Bedrock-AgentCore-Hands-On/bedrock-agentcore-memory",
     "description": "In recognition of your valuable contribution as a speaker at AWSKRUG - AI Engineering Group."
 }
